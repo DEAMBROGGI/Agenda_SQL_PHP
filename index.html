@@ -13,16 +13,17 @@
       <div class="login-container">
         <div class="callout primary login">
           <h4>Inicia sesión</h4>
-          <form>
+          <form id="#login-form"action="">
             <div class="row align-center">
               <div class="small-7 columns">
-                <label>Usuario
-                  <input type="text" id="user" required>
-                </label>
+                <label for="username">usuario</label>
+                <input id="username" name="username" type="text" class="validate">
+     
               </div>
               <div class="small-7 columns">
-                <label>Contraseña
-                  <input type="password" id="password" required>
+                 <label for="passw">Contraseña</label>
+                <input id="passw" type="password" name="passw"class="validate">
+                     
                 </label>
               </div>
               <div class="small-7 columns btn-container">
@@ -38,5 +39,6 @@
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.min.js"></script>
     <script src="js/index.js"></script>
+    
   </body>
 </html>

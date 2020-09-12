@@ -11,10 +11,11 @@ require('./conector.php');
 
     if ($resultado_consulta->num_rows != 0) {
       $response['acceso'] = 'concedido';
-    }else $response['acceso'] = 'rechazado';
+    }else $response['acceso'] = 'Usuario o contraseña incorrectos';
   }
 
   echo json_encode($response);
+  
 
   $con->cerrarConexion();
 

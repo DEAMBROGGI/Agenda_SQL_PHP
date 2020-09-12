@@ -32,15 +32,16 @@
 
     function consultar($tablas, $campos, $condicion = ""){
       $sql = "SELECT ";
-      $ultima_key = end(array_keys($campos));
+      $Keyc=array_keys($campos);
+      $ultima_key = end($Keyc);
       foreach ($campos as $key => $value) {
         $sql .= $value;
         if ($key!=$ultima_key) {
           $sql.=", ";
         }else $sql .=" FROM ";
       }
-
-      $ultima_key = end(array_keys($tablas));
+      $Keyt = array_keys($tablas);
+      $ultima_key = end($Keyt);
       foreach ($tablas as $key => $value) {
         $sql .= $value;
         if ($key!=$ultima_key) {
