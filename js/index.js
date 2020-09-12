@@ -31,7 +31,9 @@ class Login {
     }).done(function (data) {
      
       if (data.acceso == "concedido") {
-        window.location.href = 'main.html';
+        window.location.href = 'test.html';
+        user = data.id;
+        console.log(user);
       } else {
         alert(data.acceso);
       }

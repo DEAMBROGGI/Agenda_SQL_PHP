@@ -233,5 +233,5 @@ function initForm(){
       $('.timepicker, #end_date').removeAttr("disabled")
     }
   })
-
+*/
 }

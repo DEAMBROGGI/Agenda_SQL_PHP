@@ -2,20 +2,23 @@
   
 require('./conector.php');
 
-  $con = new ConectorBD('localhost','t_general','1234');
+  $con = new ConectorBD();
 
-  $response['conexion'] = $con->initConexion('agenda');
+  if($con->initConexion('agenda')=='OK'){
+    
+  
+    $initCalendario= $con->consultar(['usuarios'],
+       ['email','id'], 'WHERE email="juan" AND psw="1"');
 
-  if ($response['conexion']=='OK') {
-    $resultado_consulta = $con->consultar(['usuarios'],
-       ['email', 'psw'], 'WHERE email="juan" AND psw="1"');
-
-    if ($resultado_consulta->num_rows != 0) {
-      $response['acceso'] = 'concedido';
+    if ($initCalendario->num_rows != 0) {
+          $response['user'] = $initCalendario->fetch_assoc();
+      
+      
     }else $response['acceso'] = 'Usuario o contraseña incorrectos';
   }
-
+    
   echo json_encode($response);
+   
   
 
   $con->cerrarConexion();
