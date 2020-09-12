@@ -8,30 +8,32 @@ class EventsManager {
 
 
     obtenerDataInicial() {
-        let url = '../server/getEvents.php'
-        $.ajax({
-          url: url,
-          dataType: "json",
-          cache: false,
-          processData: false,
-          contentType: false,
-          type: 'GET',
-          success: (data) =>{
-            if (data.msg=="OK") {
-              this.poblarCalendario(data.eventos)
-            }else {
-              alert(data.msg)
-              window.location.href = 'index.html';
-            }
-          },
-          error: function(){
-            alert("error en la comunicación con el servidor");
-          }
-        })
+        let url = 'server/getEvents.php'
+      $.ajax({
+        url: url,
+        cache: false,
+        processData: false,
+        contentType: false,
+        type: 'GET',
+        dataType: "json",
+
+      }).done(function (data) {
+        console.log(data);
+        alert(data)
+      if (data.acceso == "concedido") {
+      // this.poblarCalendario(data.eventos)
+      } else {
+        alert(data.acceso);
+        window.location.href = 'index.html';
+      }
+    }).fail(function () {
+      alert("Algo salió mal");
+    });
+          
 
     }
 
-    poblarCalendario(eventos) {
+  /*  poblarCalendario(eventos) {
         $('.calendario').fullCalendar({
             header: {
         		left: 'prev,next today',
