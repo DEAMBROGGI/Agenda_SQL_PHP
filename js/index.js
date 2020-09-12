@@ -19,10 +19,7 @@ class Login {
     let form_data = new FormData();
     form_data.append('username', $('#username').val())
     form_data.append('passw', $('#passw').val())
-      
-     
-
-      
+    
     $.ajax({
       url: 'server/check_login.php',
       cache: false,
